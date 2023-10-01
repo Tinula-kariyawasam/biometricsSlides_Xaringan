@@ -196,7 +196,7 @@ grid.arrange(p1, p2)
 <div class="grid-container">
   <div class="grid-item">
     <div class="gif-title">Bayesian Inference</div>
-    <img class="bay" src="mcmc.gif" alt="GIF Description 1">
+    <img class="bay" src="mcmc.png" alt="GIF Description 1">
   </div>
   <div class="grid-item">
     <div class="gif-title">Predictive Analysis</div>
