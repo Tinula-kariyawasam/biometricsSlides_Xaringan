@@ -1,0 +1,281 @@
+/* leave this alone */
+@page { margin: 0; }
+@media print {
+  .remark-slide-scaler {
+    width: 100% !important;
+    height: 100% !important;
+    transform: scale(1) !important;
+    top: 0 !important;
+    left: 0 !important;
+  }
+}
+
+/*background as png */
+.remark-slide-content {
+  background-image: url('backs.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.title-slide {
+  background-image: url(DPIRD_logo_white.svg), url(wordcloud.png), url(layered-waves-haikei.svg);
+  background-position: 2% 2%, 90% 45%, 0% 0%;
+  background-size: 40%, 40%, cover;
+  background-repeat: no-repeat, no-repeat, repeat;
+  background-color: #fff; 
+}
+
+/* H1 fonts */
+.title-slide h1 {
+  color: #515151;
+  padding-top: 250px;
+  font-weight: normal;
+  font-size: 55px;
+  line-height: 1.2;
+  text-align: left;
+  text-shadow: none;
+  padding-bottom: 18px;
+  margin-bottom: 18px;
+}
+
+/* H2 fonts */
+.title-slide h2 {
+  color: #cc0033;
+  font-size: 35px;
+  text-align: left;
+  text-shadow: none;
+  padding-top: 0px;
+  margin-top: 0px;
+}
+
+/* H3 fonts */
+.title-slide h3 {
+  font-size: 28px;
+  font-weight: normal;
+  color: #666666;
+  text-align: left;
+  text-shadow: none;
+  padding: 0px;
+  margin: 12px;
+  line-height: 1;
+}
+
+/* Remove slide count */
+.title-slide .remark-slide-number {
+  text-shadow: none;
+  display: none;
+}
+
+
+/* For dream team slide */
+/* CSS for four squares on the slide */
+.square-container {
+  display: flex; 
+  flex-wrap: wrap; /* This ensures the boxes will wrap to the next line if they don't fit on one line. */
+  justify-content: space-between; /* This spaces the boxes evenly across the slide. */
+  align-items: center;
+}
+
+.square {
+  box-sizing: border-box; /* Ensures padding and border are included in total width/height. */
+  width: 45%; /* Each box will take up nearly half the width of the slide. */
+  height: 45%; /* Adjust height as necessary. */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5%; /* Inner spacing. */
+}
+
+.circular-image {
+  width: 60%;
+  height: 60%;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.circular-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.image-caption {
+  text-align: center;
+  margin-top: 5px;
+  font-size: 1.3em;
+}
+
+
+
+/*main title with side bar title*/
+.main-title {
+  position: absolute;
+  top: 15px; 
+  left: 50%;
+  transform: translateX(-50%); /* This centers the title */
+  font-size: 1.3em;
+  z-index: 10; /* Ensure it's on top of other elements */
+}
+
+.sidebar-title {
+  position: absolute;
+  left: 10px;
+  font-size: 1.5em;
+  z-index: 10;
+  opacity: 0.3;
+}
+
+.sidebar-container .sidebar-title:nth-of-type(1) {
+  top: 100px;
+}
+
+.sidebar-container .sidebar-title:nth-of-type(2) {
+  top: 160px;
+}
+
+.sidebar-container .sidebar-title:nth-of-type(3) {
+  top: 220px;
+}
+
+.sidebar-container .sidebar-title:nth-of-type(4) {
+  top: 280px;
+  font-size: 1.0em;
+}
+
+.sidebar-title.active {
+  opacity: 1;
+  color: black;
+}
+
+/*ron gif */
+.ron-centered-container {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center;     /* Center vertically */
+  height: 100%;            /* Take up the full height of the slide */
+  margin-top: 55px;        /* Push down the container by 60 pixels */
+}
+/* quotes */
+.quote {
+  position: absolute;
+  font-style: italic;
+  z-index: 5; /* Below your other elements but above the slide's base layer */
+}
+
+#quote1 {
+  top: 10%;
+  left:15%;
+  transform: rotate(0deg);
+  font-size: medium;
+}
+
+#quote2 {
+  top: 15%;
+  left:15%;
+  transform: rotate(0deg);
+  font-size: medium;
+}
+
+#quote3 {
+  top: 20%;
+  left:15%;
+  transform: rotate(0deg);
+  font-size: medium;
+}
+
+#quote4 {
+  top: 25%;
+  left:15%;
+  transform: rotate(0deg);
+  font-size: medium;
+}
+
+#quote5 {
+  top: 30%;
+  left:15%;
+  transform: rotate(0deg);
+  font-size: medium;
+}
+
+#quote6 {
+  top: 35%;
+  left:15%;
+  transform: rotate(0deg);
+  font-size: medium;
+}
+/* trial design gif */
+.design-centered-container {  
+  margin: auto; /* This can help centering in certain situations, especially when the parent doesn't use flexbox */
+  margin-top: 50px;
+  
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center;     /* Center vertically */
+}
+/* lsd meme container */
+.lsdMeme {
+  width: 40%;       /* Width of the container */
+  float: right;     /* Float to the right of its containing block */
+  padding-left: 10px;  /* Space between the content on the left and the image */
+  margin-top: -250px;   /* Move the container up by 50px */
+}
+
+.lsdMeme img {
+  width: 100%;      /* Makes the image fill its container */
+  height: auto;     /* Maintains the image's aspect ratio */
+  display: block;   /* Removes any default margin/padding */
+}
+
+/* for plot positioning */
+.right-plot {
+  width: 60%;
+  position: relative;
+  top: 50px;          /* Adjust the downward movement. */
+  left: 60px;        /* Adjust the leftward movement. */
+  padding-left: 1%;
+}
+
+.mcmc-centered-container {  
+  margin: auto; 
+  margin-top: 5px;
+  justify-content: center; 
+  align-items: center;
+
+  /* Scaling */
+  transform: scale(0.8);
+}
+
+.mcmc-centered-container img {
+  max-width: 100%;
+  height: auto; 
+}
+
+/* observational */
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  width: 90%;  /* Reduced from 90% */
+  margin: 100px auto 0 auto; /* Added more margin to the top */
+}
+
+.gif-title {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-weight: bold;
+  font-size: x-small;
+}
+
+/* Adjustments to the GIF styles */
+.bay, .pred, .hd, .clas {
+  width: 100%;  /* Set to max width */
+  max-height: 150px;  /* Set a maximum height */
+  object-fit: contain;  /* This ensures the aspect ratio is maintained */
+}
+
+.grid-item {
+  position: relative;
+}
