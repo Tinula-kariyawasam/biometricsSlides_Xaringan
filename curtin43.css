@@ -344,3 +344,22 @@
 .grid-item {
     position: relative;
 }
+
+
+/* last slide */
+
+.micDrop {
+    position: absolute;
+    bottom: 5%;
+    left: 5%;
+    top: 10%;
+    transform: scale(0.6);
+}
+
+.ronPizza {
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+    top: 14%;
+    transform: scale(0.68);
+}

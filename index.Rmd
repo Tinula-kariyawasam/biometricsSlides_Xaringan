@@ -235,4 +235,16 @@ grid.arrange(p1, p2)
 
 * Attending + Speaking at conferences
 
+---
+
+# Until next time, let's all stay statistically significant!
+
+<div class="micDrop">
+    <img src="micDrop.gif">
+</div>
+
+<div class="ronPizza">
+    <img src="ronPIzza.gif">
+</div>
+
 
