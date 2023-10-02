@@ -2,6 +2,49 @@ library(ggplot2)
 library(dplyr)
 library(tidyr)
 library(theme.dpird)
+
+
+# bar plot -----
+
+
+# Dummy data for the bar plot
+set.seed(123)
+df1 <- data.frame(
+  treatment = factor(c("Magneta", "Trojan", "Janz", "Scout")),
+  y_variate = rnorm(4, 10, 2),
+  lsd = rep(1.2, 4)
+)
+
+p1 <- ggplot(df1, aes(treatment, y_variate, fill = as.factor(treatment))) +
+  geom_bar(stat="identity", position = "dodge") +
+  geom_errorbar(aes(ymin= y_variate - 0.5 * lsd, ymax = y_variate + 0.5 * lsd), 
+                width = 0.2, 
+                position = position_dodge(0.9)) +
+  theme_dpird(minor_grid = T, border = F) +
+  theme(legend.position="none", plot.background = element_rect(fill = "#003F51"), 
+        panel.background = element_rect(fill = "#003F51")) + 
+  labs(x = "", y = "")
+
+
+# Dummy data for the line plot
+set.seed(2023)
+df2 <- data.frame(
+  REP = rep(factor(1:5), each=4),
+  y_variate = rnorm(20, 50, 20),
+  group = factor(rep(1:4, 5)),
+  lsd = rep(2, 20)
+)
+
+p2 <- ggplot(df2, aes(REP, y_variate, color=group, group=group)) +
+  geom_line() +
+  geom_errorbar(aes(ymin = y_variate - 0.5*lsd, ymax = y_variate + 0.5*lsd), width = 0.2) +
+  theme_dpird(minor_grid = T, border = F) +
+  theme(legend.position="none", plot.background = element_rect(fill = "#003F51"), panel.background = element_rect(fill = "#003F51")) +
+  labs(y = "Yield")
+
+
+# MC MC -------------
+
 set.seed(82)
 n <- 10000
 mcHist <- data_frame(Poisson = rpois(n, 3), 
@@ -34,11 +77,23 @@ g <- ggplot(mcHist) +
   geom_text(x = rep(21, 3*n), y = rep(.1, 3*n), 
             label = rep(c("=", "+", ""), each = n), size = 24)
 
+i = 200 
+dataUpdate <- mcSample %>%
+  group_by(Distribution) %>%
+  filter(rowNum %in% 1:i) %>%
+  group_by(Distribution) %>%
+  mutate(Last = rowNum == i)
+gUpdate <- g +
+  geom_dotplot(data = dataUpdate,
+               aes(Value, fill = Last), color = NA, 
+               binwidth = 1, method = "histodot",
+               dotsize = .6) +
+  scale_fill_manual(guide = FALSE, values = c("black", "red")) 
 
 # df[df$iteration %% 10 == 0, ]
 # mcSample <- mcSample[mcSample$rowNum %% 8 == 0, ]
-
-for (i in 1:length(unique(mcSample$rowNum))) {
+?seq
+for (i in seq(1, 400, length.out = 20)) {
   dataUpdate <- mcSample %>%
     group_by(Distribution) %>%
     filter(rowNum %in% 1:i) %>%
@@ -79,7 +134,6 @@ image_write(image = img_animated,
 
 
 
-getwd()
 
 library(rpart)
 library(rpart.plot)
